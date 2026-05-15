@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ferny AI — Strategy Conversation</title>
+<title>Fernie — Questions to Answer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
     --ferny-green-light: #69936C;
     --ferny-green-dark: #3d6b4a;
     --ferny-bg-tint: rgba(74,124,89,0.08);
-    --ferny-bg-subtle: rgba(74,124,89,0.06);
+    --ferny-bg-subtle: rgba(74,124,89,0.04);
     --fulfill: #BA3636;
     --produce: #DB6E14;
     --restock: #2563EB;
@@ -31,15 +31,15 @@
     margin: 0; padding: 0;
     background: var(--bg); color: var(--ink);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 15.5px; line-height: 1.6;
+    font-size: 15.5px; line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 980px; margin: 0 auto; padding: 56px 28px 96px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 48px 28px 80px; }
 
   /* Header */
   .topbar {
     display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 44px; gap: 16px; flex-wrap: wrap;
+    margin-bottom: 32px; gap: 16px; flex-wrap: wrap;
   }
   .brand { display: flex; align-items: center; gap: 12px; }
   .brand-icon {
@@ -65,207 +65,140 @@
 
   /* Hero */
   .hero {
-    background: linear-gradient(135deg, #ffffff 0%, #f7fbf7 100%);
-    border: 1px solid var(--line);
     border-left: 4px solid var(--ferny-green);
-    border-radius: 14px;
-    padding: 36px 40px;
-    margin-bottom: 40px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
-  }
-  .hero .eyebrow {
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--ferny-green);
-    margin-bottom: 12px;
+    padding: 8px 24px;
+    margin-bottom: 36px;
   }
   .hero h1 {
     font-family: 'PT Serif', Georgia, serif;
-    font-size: 2.2rem; line-height: 1.18;
-    margin: 0 0 14px; color: var(--ink); letter-spacing: -0.015em;
+    font-size: 1.85rem; line-height: 1.2;
+    margin: 0 0 6px; color: var(--ink); letter-spacing: -0.015em;
   }
   .hero p {
-    margin: 0; font-size: 1.05rem; color: var(--ink-soft); max-width: 700px;
+    margin: 0; font-size: 1rem; color: var(--ink-soft);
   }
 
-  /* Section header */
-  .section-head {
-    display: flex; align-items: center; gap: 12px;
-    margin: 44px 0 14px;
+  /* Section banner */
+  .section-banner {
+    display: flex; align-items: baseline; gap: 12px;
+    margin: 40px 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
   }
-  .section-head .num {
-    width: 28px; height: 28px; border-radius: 6px;
-    background: var(--ferny-green); color: white;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.82rem; font-weight: 700;
-  }
-  .section-head h2 {
+  .section-banner h2 {
     font-family: 'PT Serif', Georgia, serif;
-    font-size: 1.4rem; margin: 0; color: var(--ink);
-    letter-spacing: -0.01em;
+    font-size: 1.5rem; margin: 0; color: var(--ink);
+    letter-spacing: -0.015em;
   }
-  .section-head .timing {
-    margin-left: auto; font-size: 0.76rem; color: var(--muted);
-    background: var(--line-soft); padding: 4px 10px; border-radius: 999px;
+  .section-banner .tagline {
+    font-size: 0.82rem; color: var(--muted);
+    flex: 1;
   }
-
-  /* Card */
-  .card {
-    background: var(--card); border-radius: 12px;
-    padding: 24px 28px; border: 1px solid var(--line);
-    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
-  }
-  .card p:first-child { margin-top: 0; }
-  .card p:last-child { margin-bottom: 0; }
-
-  /* Two-col */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .three-col { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-
-  /* Lists */
-  .list { margin: 4px 0 0; padding-left: 18px; }
-  .list li { margin-bottom: 8px; color: var(--ink-soft); }
-  .list li strong { color: var(--ink); }
-  .col-title {
-    font-size: 0.74rem; text-transform: uppercase;
-    letter-spacing: 0.08em; color: var(--muted); font-weight: 600;
-    margin: 0 0 10px;
+  .section-banner .count {
+    font-size: 0.75rem; color: var(--ferny-green);
+    background: var(--ferny-bg-tint);
+    padding: 4px 10px; border-radius: 999px;
+    font-weight: 600;
   }
 
-  /* Fork cards */
-  .forks { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 4px; }
-  .fork {
-    background: var(--card); border: 1px solid var(--line);
-    border-radius: 12px; padding: 22px 22px 20px;
-    position: relative; display: flex; flex-direction: column;
+  /* Q card */
+  .qgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
-  .fork .letter {
-    position: absolute; top: 18px; right: 22px;
+  .q {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 18px;
+    transition: border-color 0.15s ease;
+  }
+  .q:hover { border-color: var(--ferny-green); }
+  .q .num {
     font-family: 'PT Serif', Georgia, serif;
-    font-size: 1.8rem; font-weight: 700; color: var(--ferny-bg-tint);
-    line-height: 1;
+    font-size: 0.78rem; font-weight: 700;
+    color: var(--ferny-green);
+    letter-spacing: 0.06em;
   }
-  .fork.featured {
-    border-color: var(--ferny-green);
-    box-shadow: 0 4px 16px rgba(74,124,89,0.12);
+  .q .question {
+    font-size: 1.02rem; font-weight: 600; color: var(--ink);
+    margin: 4px 0 10px;
+    line-height: 1.35;
   }
-  .fork.featured .letter { color: var(--ferny-green); opacity: 0.18; }
-  .fork .label {
-    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--muted);
-    margin-bottom: 6px;
+  .q .opts {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 10px;
   }
-  .fork h3 {
-    font-family: 'PT Serif', Georgia, serif;
-    font-size: 1.15rem; margin: 0 0 10px; color: var(--ink);
-    letter-spacing: -0.01em;
+  .q .opt {
+    display: inline-block;
+    font-size: 0.78rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: var(--line-soft);
+    color: var(--ink-soft);
+    font-weight: 500;
+    border: 1px solid transparent;
   }
-  .fork p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 14px; }
-  .fork .row {
-    font-size: 0.8rem; color: var(--muted);
-    margin-top: auto; padding-top: 12px;
+  .q .opt.lean {
+    background: var(--ferny-bg-tint);
+    color: var(--ferny-green);
+    border-color: rgba(74,124,89,0.25);
+    font-weight: 600;
+  }
+  .q .opt.fulfill { background: rgba(186,54,54,0.08); color: var(--fulfill); }
+  .q .opt.produce { background: rgba(219,110,20,0.08); color: var(--produce); }
+  .q .opt.restock { background: rgba(37,99,235,0.08); color: var(--restock); }
+  .q .opt.forecast { background: rgba(100,70,114,0.08); color: var(--forecast); }
+  .q .note {
+    font-size: 0.78rem; color: var(--muted); line-height: 1.45;
+    padding-top: 8px;
     border-top: 1px solid var(--line-soft);
-    display: flex; justify-content: space-between;
   }
-  .fork .row strong { color: var(--ink); font-weight: 600; }
-  .fork .rec {
-    display: inline-block; background: var(--ferny-green); color: white;
-    font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em;
-    text-transform: uppercase; padding: 3px 8px; border-radius: 4px;
-    margin-left: 8px;
-  }
+  .q .note strong { color: var(--ink); font-weight: 600; }
 
-  /* Stakes block */
-  .stakes {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-left: 4px solid var(--produce);
-    border-radius: 12px;
-    padding: 22px 26px;
-    margin-top: 14px;
-  }
-  .stakes .label {
-    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--produce);
-    margin-bottom: 8px;
-  }
-  .stakes p { margin: 0 0 10px; color: var(--ink-soft); }
-  .stakes p:last-child { margin-bottom: 0; }
+  /* Full-width Q for emphasis */
+  .q.wide { grid-column: 1 / -1; }
 
-  /* Decision row */
-  .decisions { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-top: 4px; }
-  .decision {
-    border: 1px dashed var(--ferny-green); border-radius: 10px;
-    padding: 16px 18px; background: rgba(74,124,89,0.03);
-  }
-  .decision .q {
-    font-weight: 600; color: var(--ink); margin-bottom: 6px;
-    font-size: 0.98rem;
-  }
-  .decision .hint {
-    font-size: 0.82rem; color: var(--muted); line-height: 1.5;
-  }
-
-  /* Won't do */
-  .wont {
-    background: var(--card);
-    border-radius: 12px; padding: 22px 26px;
-    border: 1px solid var(--line);
-  }
-  .wont ul { margin: 0; padding-left: 0; list-style: none; }
-  .wont li {
-    padding: 10px 0; border-bottom: 1px solid var(--line-soft);
-    color: var(--ink-soft); display: flex; gap: 12px;
-  }
-  .wont li:last-child { border-bottom: none; }
-  .wont li::before {
-    content: '—'; color: var(--ferny-green); font-weight: 700;
-    flex-shrink: 0;
-  }
-  .wont li strong { color: var(--ink); font-weight: 600; }
-
-  /* Module pills */
-  .pill {
-    display: inline-block; padding: 4px 11px; border-radius: 999px;
-    font-size: 0.76rem; font-weight: 600;
-    margin-right: 6px; margin-bottom: 6px;
-  }
-  .pill.fulfill { background: rgba(186,54,54,0.1); color: var(--fulfill); }
-  .pill.produce { background: rgba(219,110,20,0.1); color: var(--produce); }
-  .pill.restock { background: rgba(37,99,235,0.1); color: var(--restock); }
-  .pill.forecast { background: rgba(100,70,114,0.12); color: var(--forecast); }
-
-  /* Closing questions */
-  .closing-q {
+  /* Closing block */
+  .leave-with {
+    margin-top: 36px;
     background: linear-gradient(135deg, #f7fbf7, #ffffff);
     border: 1px solid var(--ferny-green);
-    border-radius: 12px; padding: 26px 30px;
-    margin-top: 10px;
+    border-radius: 12px;
+    padding: 22px 26px;
   }
-  .closing-q ol {
-    margin: 0; padding-left: 22px;
+  .leave-with .label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--ferny-green);
+    margin-bottom: 8px;
+  }
+  .leave-with h3 {
     font-family: 'PT Serif', Georgia, serif;
-    font-size: 1.1rem; line-height: 1.5; color: var(--ink);
+    font-size: 1.2rem; margin: 0 0 10px;
+    color: var(--ink);
   }
-  .closing-q li { margin-bottom: 12px; }
-  .closing-q li:last-child { margin-bottom: 0; }
+  .leave-with p {
+    margin: 0; color: var(--ink-soft); font-size: 0.98rem;
+  }
 
   /* Footer */
   footer {
-    margin-top: 60px; padding-top: 22px;
+    margin-top: 48px; padding-top: 18px;
     border-top: 1px solid var(--line);
     font-size: 0.8rem; color: var(--muted);
     display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
   }
 
   @media (max-width: 780px) {
-    .two-col, .three-col, .forks, .decisions { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 1.6rem; }
-    .hero { padding: 26px 24px; }
-    .wrap { padding: 32px 18px 64px; }
+    .qgrid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.4rem; }
+    .wrap { padding: 28px 16px 48px; }
   }
   @media print {
-    body { font-size: 11pt; }
-    .card, .fork, .hero, .stakes, .closing-q, .decision, .wont { break-inside: avoid; box-shadow: none; }
+    body { font-size: 10.5pt; }
+    .q, .leave-with { break-inside: avoid; }
+    .q:hover { border-color: var(--line); }
   }
 </style>
 </head>
@@ -276,339 +209,187 @@
     <div class="brand">
       <div class="brand-icon">✦</div>
       <div>
-        <span class="brand-text">FERNY</span><span class="brand-text brand-sub">&nbsp;AI</span>
+        <span class="brand-text">FERNIE</span><span class="brand-text brand-sub">&nbsp;AI</span>
       </div>
     </div>
     <div class="meta">
-      <div><strong>Strategy Conversation</strong></div>
+      <div><strong>Strategy Worksheet</strong></div>
       <div>Silver Fern Executive Session · 60 min</div>
     </div>
   </div>
 
   <div class="hero">
-    <div class="eyebrow">AI Strategy &nbsp;·&nbsp; Framing the Conversation</div>
-    <h1>Ferny is real. The next question is how big we want this to be.</h1>
-    <p>We've built a working AI assistant inside WorkSuite. It knows our domain. It answers questions about a grower's operation. We own the stack. That's a head start most companies in horticulture don't have. Now we have to decide what to do with it.</p>
+    <h1>Two questions for the room.</h1>
+    <p>What do we need to answer to ship Fernie — and what do we want Fernie to become?</p>
   </div>
 
-  <!-- 1. THE NAME -->
-  <div class="section-head">
-    <div class="num">1</div>
-    <h2>The name on the door</h2>
-    <span class="timing">7 min</span>
-  </div>
-  <div class="card">
-    <p>Three candidates on the table. They're not interchangeable — each one is a different brand story and a different set of customer expectations.</p>
-    <div class="forks" style="margin-top:18px">
-      <div class="fork">
-        <span class="letter">·</span>
-        <div class="label">Option 1</div>
-        <h3>Fernie</h3>
-        <p>A name with our DNA in it. Coworker, not a feature. Lives in customer conversations the way "Watson" or "Clippy" once did — for better and worse. Forces us to commit to the personality.</p>
-        <div class="row">
-          <span><strong>Reads as:</strong></span>
-          <span>a member of the team</span>
-        </div>
-      </div>
-      <div class="fork">
-        <span class="letter">·</span>
-        <div class="label">Option 2</div>
-        <h3>Cora</h3>
-        <p>A human name without our brand baked in. Warm, friendly, neutral enough to spin off later as its own product if we want. Doesn't tie our AI's reputation to the Silver Fern brand by default.</p>
-        <div class="row">
-          <span><strong>Reads as:</strong></span>
-          <span>a friendly assistant</span>
-        </div>
-      </div>
-      <div class="fork">
-        <span class="letter">·</span>
-        <div class="label">Option 3</div>
-        <h3>"Chat"</h3>
-        <p>Descriptive, not a personality. What GitHub Copilot Chat did. Lower expectations, easier to revise, safer when it gets something wrong. Also: surrenders the chance to own a brand here.</p>
-        <div class="row">
-          <span><strong>Reads as:</strong></span>
-          <span>a button in the corner</span>
-        </div>
-      </div>
-    </div>
-    <p style="margin-top:18px; color:var(--ink-soft); font-size:0.95rem">The hidden question: are we naming a coworker or describing a feature? Names create personality. Personalities create loyalty — and exposure when things go wrong. "Chat" carries no risk and no upside. Fernie and Cora carry both.</p>
+  <!-- ============ TO SHIP FERNIE ============ -->
+  <div class="section-banner">
+    <h2>To ship Fernie</h2>
+    <span class="tagline">Decisions needed before a customer sees it</span>
+    <span class="count">6 questions</span>
   </div>
 
-  <!-- 2. PRODUCT OR FEATURE -->
-  <div class="section-head">
-    <div class="num">2</div>
-    <h2>Product, feature, or tier?</h2>
-    <span class="timing">7 min</span>
-  </div>
-  <div class="card">
-    <p>This decision shapes pricing, sales motion, support, and brand architecture. Three honest options:</p>
-    <div class="two-col" style="margin-top:16px">
-      <div>
-        <p class="col-title">A. Embedded in WorkSuite</p>
-        <p style="color:var(--ink-soft); font-size:0.95rem; margin:0 0 10px">Every customer gets it. No separate price. Increases stickiness, hides the cost inside the platform. Lowest risk; ceiling on monetization.</p>
-        <p class="col-title">B. Premium tier (WorkSuite Pro)</p>
-        <p style="color:var(--ink-soft); font-size:0.95rem; margin:0">Two-tier the customer base. Creates an upgrade path and a clear value story. Also splits the roadmap and adds a sales conversation we don't have today.</p>
+  <div class="qgrid">
+
+    <div class="q">
+      <div class="num">Q1 · NAME</div>
+      <div class="question">What do we call it?</div>
+      <div class="opts">
+        <span class="opt lean">Fernie</span>
+        <span class="opt">Cora</span>
+        <span class="opt">"Chat"</span>
+        <span class="opt">Something else</span>
       </div>
-      <div>
-        <p class="col-title">C. Standalone product</p>
-        <p style="color:var(--ink-soft); font-size:0.95rem; margin:0 0 10px">Sold to customers who don't use WorkSuite — IGCs, specialty ag, even competitors' users. Different sales motion. Most upside. Most distraction.</p>
-        <p class="col-title">What this isn't</p>
-        <p style="color:var(--ink-soft); font-size:0.95rem; margin:0">A free chatbot we give away. Model calls cost real money. The economics force a choice between A, B, and C — there's no fourth option.</p>
-      </div>
+      <div class="note">Fernie = our brand DNA. Cora = neutral coworker. "Chat" = surrender the moat.</div>
     </div>
+
+    <div class="q">
+      <div class="num">Q2 · SCOPE</div>
+      <div class="question">What does Fernie do at v1?</div>
+      <div class="opts">
+        <span class="opt lean">Read &amp; suggest</span>
+        <span class="opt">Take actions w/ confirm</span>
+        <span class="opt">Autonomous</span>
+      </div>
+      <div class="note">Today Fernie can navigate &amp; filter grids. Moving to "take actions" needs review-then-execute UX.</div>
+    </div>
+
+    <div class="q">
+      <div class="num">Q3 · FIRST MODULE</div>
+      <div class="question">Where does Fernie ship first?</div>
+      <div class="opts">
+        <span class="opt fulfill">FULFILL</span>
+        <span class="opt produce">PRODUCE</span>
+        <span class="opt restock">RESTOCK</span>
+        <span class="opt forecast">FORECAST</span>
+      </div>
+      <div class="note">PRODUCE desktop has Ferny already. PWA flagship would be a new surface.</div>
+    </div>
+
+    <div class="q">
+      <div class="num">Q4 · CUSTOMER DATE</div>
+      <div class="question">When does a real customer touch it?</div>
+      <div class="opts">
+        <span class="opt">Q3 (rough)</span>
+        <span class="opt lean">Q4 (polished)</span>
+        <span class="opt">2027 (proud)</span>
+      </div>
+      <div class="note">First wrong answer in production is a support ticket and a trust hit. Ship when we'd put our name on it.</div>
+    </div>
+
+    <div class="q">
+      <div class="num">Q5 · RESOURCING</div>
+      <div class="question">How much do we put against it?</div>
+      <div class="opts">
+        <span class="opt">Side project</span>
+        <span class="opt lean">1 tech lead</span>
+        <span class="opt">Full team</span>
+      </div>
+      <div class="note">PRODUCE Web sprint is active. Something on the roadmap moves if Fernie gets a team.</div>
+    </div>
+
+    <div class="q">
+      <div class="num">Q6 · OWNER</div>
+      <div class="question">Who owns Fernie inside the company?</div>
+      <div class="opts">
+        <span class="opt">Product</span>
+        <span class="opt">Engineering</span>
+        <span class="opt">A new AI lead</span>
+      </div>
+      <div class="note">One throat to choke. Decision drives hiring + reporting line.</div>
+    </div>
+
   </div>
 
-  <!-- 3. PRIORITY -->
-  <div class="section-head">
-    <div class="num">3</div>
-    <h2>Where this sits on the priority list</h2>
-    <span class="timing">5 min</span>
-  </div>
-  <div class="card">
-    <p>We're in the middle of an active PRODUCE Web sprint. The roadmap for the next two quarters is already full — Perpetual Inventory, Accounting, PRODUCE Web, Forecast modernization, Bonnie feature parity, Verify, Engage. None of those are optional.</p>
-    <p>The honest question for the room: <strong>does Ferny accelerate that work, compete with it, or replace some of it?</strong></p>
-    <div class="two-col" style="margin-top:18px">
-      <div>
-        <p class="col-title">If Ferny is a top-three bet</p>
-        <ul class="list">
-          <li>Something on the current roadmap moves to make room.</li>
-          <li>One full-time tech lead, not a side project.</li>
-          <li>Customer rollout commitment in Q3 or Q4.</li>
-        </ul>
-      </div>
-      <div>
-        <p class="col-title">If Ferny is a parallel track</p>
-        <ul class="list">
-          <li>One engineer, internal-only, prove the model before scaling.</li>
-          <li>Doesn't touch the customer roadmap.</li>
-          <li>Re-evaluated at the start of Q4.</li>
-        </ul>
-      </div>
-    </div>
+  <!-- ============ FUTURE OF FERNIE ============ -->
+  <div class="section-banner">
+    <h2>The future of Fernie</h2>
+    <span class="tagline">The direction we point this at — 12 to 24 months</span>
+    <span class="count">6 questions</span>
   </div>
 
-  <!-- 4. DIRECTION -->
-  <div class="section-head">
-    <div class="num">4</div>
-    <h2>The overall direction</h2>
-    <span class="timing">8 min</span>
-  </div>
-  <div class="card">
-    <p>The story that holds everything else together:</p>
-    <ul class="list" style="margin-top:10px">
-      <li><strong>We're not building an AI company.</strong> We're a horticulture-native operations platform with AI as the vehicle.</li>
-      <li><strong>Generic AI is on every platform.</strong> Microsoft, Salesforce, NetSuite, Notion — every B2B tool has a chat panel now. That's table stakes.</li>
-      <li><strong>What no one else has is forty years of domain depth and a stack we built ourselves.</strong> Ferny knows what a Stage 3 Must Go is. ChatGPT doesn't. The platform that understands what a grower actually does wins the next decade.</li>
-      <li><strong>Our AI bet is a retention and depth bet, not a flashy demo.</strong> We're not racing OpenAI. We're making the only AI in horticulture that has the data, the workflows, and the relationships to be trusted.</li>
-    </ul>
-    <p style="margin-top:14px; padding:14px 18px; background:var(--ferny-bg-tint); border-radius:8px; color:var(--ink); font-style:italic;">If a grower asks ChatGPT about their nursery, they get plausible answers. If they ask Ferny, they get the right ones — because Ferny is in the data, not just talking about it.</p>
+  <div class="qgrid">
+
+    <div class="q">
+      <div class="num">F1 · AMBITION</div>
+      <div class="question">How big do we want Fernie to be?</div>
+      <div class="opts">
+        <span class="opt">Polished assistant</span>
+        <span class="opt lean">Co-pilot</span>
+        <span class="opt">Autopilot</span>
+      </div>
+      <div class="note">Assistant = better search bar. Co-pilot = does work with confirmation. Autopilot = runs the operation overnight.</div>
+    </div>
+
+    <div class="q">
+      <div class="num">F2 · PRODUCT SHAPE</div>
+      <div class="question">Feature, tier, or product?</div>
+      <div class="opts">
+        <span class="opt lean">Embedded in WorkSuite</span>
+        <span class="opt">Premium tier</span>
+        <span class="opt">Standalone product</span>
+      </div>
+      <div class="note">Model calls cost real money. There's no "free chatbot" path. The economics force a pricing choice.</div>
+    </div>
+
+    <div class="q">
+      <div class="num">F3 · CONSULTING</div>
+      <div class="question">Do we sell AI consulting too?</div>
+      <div class="opts">
+        <span class="opt">No</span>
+        <span class="opt">Pure service</span>
+        <span class="opt lean">Productized packages</span>
+        <span class="opt">Wedge into platform</span>
+      </div>
+      <div class="note">Customers are already asking. Easy money — but can cannibalize product or eat engineer time.</div>
+    </div>
+
+    <div class="q">
+      <div class="num">F4 · CROSS-PRODUCT</div>
+      <div class="question">Just WorkSuite — or everywhere?</div>
+      <div class="opts">
+        <span class="opt">WorkSuite PWA only</span>
+        <span class="opt lean">PWA + Produce desktop</span>
+        <span class="opt">Everywhere (mobile too)</span>
+      </div>
+      <div class="note">Produce desktop already has its own Ferny. Unify on one brain, or keep them separate?</div>
+    </div>
+
+    <div class="q">
+      <div class="num">F5 · BUILD VS. PARTNER</div>
+      <div class="question">Whose brain runs Fernie?</div>
+      <div class="opts">
+        <span class="opt lean">Vendor model + our logic</span>
+        <span class="opt">Our own model</span>
+        <span class="opt">Hybrid over time</span>
+      </div>
+      <div class="note">Anthropic / OpenAI for the language layer. Our domain logic + data stays ours. Standard play.</div>
+    </div>
+
+    <div class="q">
+      <div class="num">F6 · NORTH STAR</div>
+      <div class="question">How do we measure success?</div>
+      <div class="opts">
+        <span class="opt">Adoption %</span>
+        <span class="opt lean">Hours saved per customer</span>
+        <span class="opt">NPS lift</span>
+        <span class="opt">Revenue attached</span>
+      </div>
+      <div class="note">Pick one number that decides whether Fernie is working. Everything else is secondary.</div>
+    </div>
+
   </div>
 
-  <!-- 5. AI CONSULTING -->
-  <div class="section-head">
-    <div class="num">5</div>
-    <h2>AI consulting — product, service, or wedge?</h2>
-    <span class="timing">7 min</span>
-  </div>
-  <div class="card">
-    <p>Customers are starting to ask us about their AI, not just ours. Some of them want help. Some of them want to be told what's worth doing. There's revenue there. The question is what shape it takes — and how it relates to Ferny and WorkSuite.</p>
-    <div class="forks" style="margin-top:18px">
-      <div class="fork">
-        <span class="letter">·</span>
-        <div class="label">Shape 1</div>
-        <h3>Pure service</h3>
-        <p>Bill by the hour or the project. Predictable margin, classic consulting. Easy to start. Doesn't scale past the people in the room — and pulls our best engineers off product work.</p>
-        <div class="row">
-          <span><strong>Risk:</strong></span>
-          <span>becomes the company</span>
-        </div>
-      </div>
-      <div class="fork featured">
-        <span class="letter">·</span>
-        <div class="label">Shape 2 <span class="rec">Likely fit</span></div>
-        <h3>Productized engagements</h3>
-        <p>Fixed-scope packages — "AI Readiness Assessment," "Implementation Sprint," "Custom Tool Build." Repeatable, sellable, doesn't depend on the same engineer being available every time.</p>
-        <div class="row">
-          <span><strong>Risk:</strong></span>
-          <span>marketing + sales motion required</span>
-        </div>
-      </div>
-      <div class="fork">
-        <span class="letter">·</span>
-        <div class="label">Shape 3</div>
-        <h3>Wedge into the platform</h3>
-        <p>Consulting is how we get in the door. WorkSuite + Ferny is the destination. Every engagement ends with the customer on our platform, paying ongoing.</p>
-        <div class="row">
-          <span><strong>Risk:</strong></span>
-          <span>long sales cycle</span>
-        </div>
-      </div>
-    </div>
-    <p style="margin-top:20px"><strong>How it interacts with Ferny and WorkSuite:</strong></p>
-    <ul class="list">
-      <li><strong>It can feed product.</strong> Every consulting engagement teaches us what customers actually need. That's the cheapest market research we'll ever do — paid for by the customer.</li>
-      <li><strong>It can cannibalize product.</strong> If we'll build it custom for the right cheque, why would a customer buy the off-the-shelf version? We have to be deliberate about what stays bespoke and what becomes a feature.</li>
-      <li><strong>It can be the implementation layer.</strong> Every meaningful Ferny rollout includes services — onboarding, custom tools, training. That's not a side business; that's the way customers actually get value.</li>
-    </ul>
-    <p style="margin-top:14px; padding:14px 18px; background:var(--ferny-bg-tint); border-radius:8px; color:var(--ink); font-style:italic;">The line we draw today decides what kind of company we are in two years. A SaaS company that does light services. A services firm that happens to ship software. Or a hybrid that explicitly uses one to win the other.</p>
-  </div>
-
-  <!-- 6. WHERE WE STAND -->
-  <div class="section-head">
-    <div class="num">6</div>
-    <h2>Where Ferny stands today</h2>
-    <span class="timing">5 min</span>
-  </div>
-  <div class="card">
-    <div class="two-col">
-      <div>
-        <p class="col-title">What's working</p>
-        <ul class="list">
-          <li><strong>It's live inside WorkSuite.</strong> Behind a flag, but real.</li>
-          <li><strong>It knows our world.</strong> Transplant lots, grades, space planning — Ferny speaks the language because it was built here.</li>
-          <li><strong>It's ours.</strong> We didn't bolt on someone else's chatbot. We own every piece of the stack.</li>
-          <li><strong>It already does something useful.</strong> Read the screen, answer questions, point users where they need to go.</li>
-        </ul>
-      </div>
-      <div>
-        <p class="col-title">What it isn't yet</p>
-        <ul class="list">
-          <li><strong>It's a helper, not a worker.</strong> It tells you what to do. It doesn't do it.</li>
-          <li><strong>It hasn't met a customer.</strong> Zero growers have used it.</li>
-          <li><strong>It lives inside one app.</strong> Not on the Produce desktop. Not in mobile. Not in email.</li>
-          <li><strong>It's a starting point.</strong> The hardest plumbing is done. Everything that matters comes next.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- 7. WHY THIS MATTERS NOW -->
-  <div class="section-head">
-    <div class="num">7</div>
-    <h2>Why this conversation matters now</h2>
-    <span class="timing">5 min</span>
-  </div>
-  <div class="card">
-    <p>Every grower we sell to is already using AI for something. ChatGPT for emails. Copilot for spreadsheets. Whatever their kids showed them on their phone. They're going to expect AI inside WorkSuite the same way they expect search inside Google.</p>
-    <p>Every B2B platform on the market — Microsoft, Salesforce, NetSuite, the whole list — has shipped a chat panel in the last twelve months. Chat is table stakes. A better search bar isn't a differentiator anymore.</p>
-    <p>What we have, and what nobody else in horticulture has, is forty years of domain depth and a stack we built ourselves. Ferny knows what a Stage 3 Must Go is. ChatGPT doesn't. That's where the moat lives — if we choose to build it.</p>
-  </div>
-
-  <div class="stakes">
-    <div class="label">The cost of standing still</div>
-    <p>Growers are already patching together spreadsheets, guessing at capacity, scrambling schedules, and reconciling data after the kids are asleep. That's the world we sell into. If their tools don't get smarter while everyone else's do, we're the patchwork they replace — not the one they keep.</p>
-    <p>The flip side: if we get this right, we're the only platform in our space that understands what the grower actually does. That's worth more than any feature we could ship in the same quarter.</p>
-  </div>
-
-  <!-- 8. THREE FORKS -->
-  <div class="section-head">
-    <div class="num">8</div>
-    <h2>Three forks in the road</h2>
-    <span class="timing">20 min · pick one</span>
-  </div>
-  <div class="forks">
-    <div class="fork">
-      <span class="letter">A</span>
-      <div class="label">Fork A</div>
-      <h3>The Polished Assistant</h3>
-      <p>Ferny stays inside WorkSuite and gets better at what it does today. Faster answers. Cleaner UI. Helps users navigate, find data, and ask questions.</p>
-      <div class="row">
-        <span>Effort: <strong>Small</strong></span>
-        <span>Timeline: <strong>1–2 quarters</strong></span>
-      </div>
-    </div>
-    <div class="fork featured">
-      <span class="letter">B</span>
-      <div class="label">Fork B <span class="rec">Recommended</span></div>
-      <h3>The Co-Pilot</h3>
-      <p>Ferny does work on the user's behalf. Allocates space. Builds the transplant plan. Reorders materials. Always with the user's confirmation, but doing the heavy lifting they'd otherwise do by hand.</p>
-      <div class="row">
-        <span>Effort: <strong>Medium</strong></span>
-        <span>Timeline: <strong>2–4 quarters</strong></span>
-      </div>
-    </div>
-    <div class="fork">
-      <span class="letter">C</span>
-      <div class="label">Fork C</div>
-      <h3>The Autopilot</h3>
-      <p>Ferny runs the operation overnight. The grower wakes up to a plan, with reasoning attached, and overrides anything they disagree with. Redefines what a horticulture platform is.</p>
-      <div class="row">
-        <span>Effort: <strong>Large</strong></span>
-        <span>Timeline: <strong>4–6+ quarters</strong></span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 9. THE DECISIONS -->
-  <div class="section-head">
-    <div class="num">9</div>
-    <h2>The decisions we need to leave with</h2>
-    <span class="timing">15 min</span>
-  </div>
-  <div class="decisions">
-    <div class="decision">
-      <div class="q">1. Ambition level: A, B, or C?</div>
-      <div class="hint">This is the only decision today that locks everything else. The other questions are easier once this is settled.</div>
-    </div>
-    <div class="decision">
-      <div class="q">2. Which module does Ferny ship on first?</div>
-      <div class="hint">
-        <span class="pill fulfill">FULFILL</span>
-        <span class="pill produce">PRODUCE</span>
-        <span class="pill restock">RESTOCK</span>
-        <span class="pill forecast">FORECAST</span><br/>
-        First customer-facing surface area.
-      </div>
-    </div>
-    <div class="decision">
-      <div class="q">3. When does a real customer touch this?</div>
-      <div class="hint">Q3 (rough but real) · Q4 (polished) · 2027 (only when we'd put our name on it)</div>
-    </div>
-    <div class="decision">
-      <div class="q">4. How do we measure success?</div>
-      <div class="hint">Adoption · hours saved · NPS · revenue impact · something else? Pick one north star.</div>
-    </div>
-    <div class="decision">
-      <div class="q">5. What does it cost?</div>
-      <div class="hint">Headcount, infrastructure, opportunity cost. What other roadmap items move to make room?</div>
-    </div>
-    <div class="decision">
-      <div class="q">6. Who owns Ferny inside the company?</div>
-      <div class="hint">Product · Engineering · a new function? One throat to choke.</div>
-    </div>
-  </div>
-
-  <!-- 10. WHAT WE WON'T DO -->
-  <div class="section-head">
-    <div class="num">10</div>
-    <h2>What we won't do</h2>
-    <span class="timing">5 min</span>
-  </div>
-  <div class="wont">
-    <ul>
-      <li><div><strong>We won't build a general-purpose chatbot.</strong> ChatGPT exists. Our job is to be unmistakably useful inside the operations of a greenhouse — not to answer trivia.</div></li>
-      <li><div><strong>We won't outsource the brain.</strong> We can use vendor models for the language layer, but the domain logic, the data, and the customer relationship stay with us.</div></li>
-      <li><div><strong>We won't ship to customers until we'd put our name on it.</strong> First wrong answer in production becomes a support ticket and a trust hit.</div></li>
-      <li><div><strong>We won't replace the grower.</strong> Ferny is the apprentice with a good memory. The grower is the expert. That framing is the brand promise.</div></li>
-    </ul>
-  </div>
-
-  <!-- 11. THE CONVERSATION -->
-  <div class="section-head">
-    <div class="num">11</div>
-    <h2>The conversation we need to have today</h2>
-    <span class="timing">10 min</span>
-  </div>
-  <div class="closing-q">
-    <ol>
-      <li>What does success look like for Silver Fern in AI twelve months from now?</li>
-      <li>Who is Ferny for first — the grower, the operator on the floor, or our own team?</li>
-      <li>If you had to bet the company on A, B, or C — which one, and why?</li>
-    </ol>
+  <!-- LEAVE WITH -->
+  <div class="leave-with">
+    <div class="label">What we leave with today</div>
+    <h3>An answer to Q1, Q2, Q5, and F1. Everything else can wait.</h3>
+    <p>Name. Scope at v1. Level of resourcing. Ambition ceiling. With those four decided, the rest of the roadmap writes itself. Without them, every conversation about Fernie loops back to the same place.</p>
   </div>
 
   <footer>
-    <div>Silver Fern · Ferny AI Strategy · 2026-05-15</div>
+    <div>Silver Fern · Fernie AI Strategy · 2026-05-15</div>
     <div>Built to frame the conversation, not finish it.</div>
   </footer>
 
